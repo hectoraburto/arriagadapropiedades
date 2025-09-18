@@ -1,0 +1,38 @@
+
+:root{
+  --primary:#d90429; /* rojo del roof */
+  --dark:#111827;
+  --muted:#6b7280;
+  --bg:#ffffff;
+}
+*{box-sizing:border-box}
+html,body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif;background:var(--bg);color:#1f2937}
+a{color:var(--primary);text-decoration:none}
+img{max-width:100%;height:auto}
+.container{max-width:1180px;margin:0 auto;padding:0 1rem}
+.header{position:sticky;top:0;z-index:40;background:#fff;border-bottom:1px solid #e5e7eb}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:0.6rem 0}
+.menu{display:flex;gap:1rem}
+.menu a{padding:0.5rem 0.75rem;border-radius:12px;color:#111827}
+.menu a:hover{background:#f3f4f6}
+.btn{display:inline-block;padding:0.6rem 1rem;border-radius:12px;border:1px solid var(--primary);color:#fff;background:var(--primary);font-weight:600}
+.btn-outline{background:#fff;color:var(--primary)}
+.hero{padding:4rem 0;background:linear-gradient(180deg,#fff, #fff 60%, #f9fafb)}
+.hero h1{font-size:clamp(28px,5vw,44px);margin:0 0 0.5rem}
+.hero p{color:var(--muted);font-size:1.05rem;margin:0 0 1rem}
+.search{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0.75rem;margin-top:1rem}
+.search input,.search select{padding:0.7rem;border:1px solid #e5e7eb;border-radius:12px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.card{border:1px solid #e5e7eb;border-radius:16px;overflow:hidden;background:#fff}
+.card .body{padding:0.9rem}
+.badge{display:inline-block;padding:0.2rem 0.5rem;border-radius:999px;background:#f3f4f6;color:#374151;font-size:0.8rem}
+.features{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:2rem 0}
+.feature{border:1px dashed #e5e7eb;border-radius:16px;padding:1rem;background:#fff}
+.section{padding:2.5rem 0}
+.footer{background:#111827;color:#e5e7eb;margin-top:2rem}
+.footer a{color:#fff}
+.footer .grid{grid-template-columns:2fr 1fr 1fr}
+.copy{border-top:1px solid #374151;margin-top:1rem;padding:1rem 0;color:#9ca3af;font-size:0.9rem}
+/* responsive */
+@media (max-width:1000px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.search{grid-template-columns:repeat(2,1fr)}.footer .grid{grid-template-columns:1fr}}
+@media (max-width:640px){.grid{grid-template-columns:1fr}.search{grid-template-columns:1fr}.menu{display:none}}
