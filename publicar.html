@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Publica tu propiedad – Arriagada Propiedades</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <div id="header"></div>
+  <section class="section">
+    <div class="container">
+      <h1 style="margin-top:0">Publica tu propiedad</h1>
+      <p>Completa el formulario y te contactaremos para evaluar y publicar tu inmueble.</p>
+      <form class="card" onsubmit="location.href='mailto:jorge@arriagadapropiedades.cl?subject=Publicar%20propiedad&body=' + encodeURIComponent(this.mensaje.value); return false;" style="padding:1rem">
+        <label>Nombre</label>
+        <input required name="nombre" style="width:100%;margin:.4rem 0 .8rem;padding:.6rem;border:1px solid #e5e7eb;border-radius:12px">
+        <label>Email</label>
+        <input required type="email" name="email" style="width:100%;margin:.4rem 0 .8rem;padding:.6rem;border:1px solid #e5e7eb;border-radius:12px">
+        <label>Teléfono</label>
+        <input required name="fono" style="width:100%;margin:.4rem 0 .8rem;padding:.6rem;border:1px solid #e5e7eb;border-radius:12px">
+        <label>Mensaje</label>
+        <textarea required name="mensaje" rows="6" style="width:100%;margin:.4rem 0 .8rem;padding:.6rem;border:1px solid #e5e7eb;border-radius:12px"
+        placeholder="Tipo de propiedad, comuna, operación (venta/arriendo), superficie, precio, etc."></textarea>
+        <button class="btn">Enviar</button>
+      </form>
+    </div>
+  </section>
+  <div id="footer"></div>
+  <script src="assets/js/includes.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Importar CSV a data.js – Arriagada Propiedades</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <div id="header"></div>
+  <section class="section">
+    <div class="container">
+      <h1 style="margin-top:0">Importar CSV → data.js</h1>
+      <p>Sube un archivo CSV (mismo formato que el template) y te generaremos el contenido para reemplazar en <code>assets/js/data.js</code>.</p>
+      <input type="file" id="csvfile" accept=".csv" style="margin:1rem 0">
+      <button class="btn" id="parse">Procesar</button>
+      <h3>Resultado</h3>
+      <textarea id="out" rows="16" style="width:100%;padding:.6rem;border:1px solid #e5e7eb;border-radius:12px"></textarea>
+      <p><small>Tip: copia el resultado, pega en <code>assets/js/data.js</code> y guarda.</small></p>
+    </div>
+  </section>
+  <div id="footer"></div>
+  <script src="assets/js/includes.js"></script>
+  <script>
+  document.getElementById('parse').onclick = async ()=>{
+    const f = document.getElementById('csvfile').files[0];
+    if(!f){ alert('Selecciona un CSV primero'); return; }
+    const txt = await f.text();
+    function toNum(x){ if(!x) return null; x = (''+x).replace(/\./g,'').replace(',','.'); const n = parseFloat(x); return isNaN(n)?null:n; }
+    const rows = txt.split(/\r?\n/).filter(Boolean);
+    const headers = rows.shift().split(',');
+    const props = rows.map(line => {
+      const vals = line.split(',');
+      const o = {}; headers.forEach((h,i)=> o[h]=vals[i]||"");
+      return {
+        id: (o.id||'').trim(),
+        operacion: (o.operacion||'').trim()||null,
+        tipo: (o.tipo||'').trim()||null,
+        comuna: (o.comuna||'').trim()||null,
+        ciudad: (o.ciudad||'').trim()||null,
+        precioUF: toNum(o.precioUF),
+        precioCLP: toNum(o.precioCLP),
+        dormitorios: toNum(o.dormitorios),
+        banos: toNum(o.banos),
+        estacionamientos: toNum(o.estacionamientos),
+        superficie: toNum(o.superficie),
+        terreno: toNum(o.terreno),
+        direccion: (o.direccion||'').trim()||null,
+        imagen: (o.imagen||'').trim()||null,
+        destacado: String(o.destacado||'').trim().toLowerCase().match(/^(1|true|si|sí|yes|y)$/) ? true : false,
+        lat: toNum(o.lat), lon: toNum(o.lon),
+        descripcion: (o.descripcion||'').trim()||null
+      };
+    });
+    const out = "window.PROPIEDADES = " + JSON.stringify(props, null, 2) + ";";
+    document.getElementById('out').value = out;
+  };
+  </script>
+</body>
+</html>

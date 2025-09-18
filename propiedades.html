@@ -15,24 +15,28 @@
 <section class="section">
   <div class="container">
     <h1 style="margin-top:0">Propiedades</h1>
-    <p class="muted">Utiliza los filtros para encontrar la propiedad ideal.</p>
+    <p class="muted">Utiliza los filtros para encontrar la propiedad ideal.</p><div id="uf-widget" style="max-width:460px;margin:.5rem 0"></div>
     <div class="search" style="margin-bottom:1rem">
-      <select><option>Venta</option><option>Arriendo</option></select>
-      <select><option>Casa</option><option>Departamento</option><option>Oficina</option><option>Terreno</option></select>
-      <input placeholder="Comuna / Ciudad">
-      <input placeholder="Precio máx. (UF/$)">
+      <select id="f-op"><option value="">Operación</option><option>Venta</option><option>Arriendo</option></select>
+      <select id="f-tipo"><option value="">Tipo</option><option>Casa</option><option>Departamento</option><option>Oficina</option><option>Terreno</option><option>Local Comercial</option></select>
+      <input id="f-ubic" placeholder="Comuna / Ciudad">
+      <input id="f-precio" placeholder="Precio máx. (UF/$)">
     </div>
-    <div class="grid">
+    <div id="listado-propiedades" class="grid">
       <!-- Reutiliza cards como ejemplo -->
       <article class="card"><img src="https://picsum.photos/seed/a/800/500"><div class="body"><div class="badge">Venta</div><h3>Casa en La Reina</h3><p>4D · 3B · 160 m² — UF 11.200</p><a class="btn btn-outline" href="propiedad.html">Ver detalles</a></div></article>
       <article class="card"><img src="https://picsum.photos/seed/b/800/500"><div class="body"><div class="badge">Arriendo</div><h3>Depto. Santiago Centro</h3><p>1D · 1B · 38 m² — $420.000</p><a class="btn btn-outline" href="propiedad.html">Ver detalles</a></div></article>
       <article class="card"><img src="https://picsum.photos/seed/c/800/500"><div class="body"><div class="badge">Venta</div><h3>Terreno en Pirque</h3><p>1.200 m² — UF 6.500</p><a class="btn btn-outline" href="propiedad.html">Ver detalles</a></div></article>
     </div>
+    <div id="paginacion"></div>
   </div>
 </section>
 
 
   <div id="footer"></div>
   <script src="assets/js/includes.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/currency.js"></script>
 </body>
 </html>
